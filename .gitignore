@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+*.tmp
+.spec
+
+# Generated on every server container start by server/scripts/seed.js
+db/data/json/

@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+@import 'flowbite-react/plugin/tailwindcss';
+@source '../.flowbite-react/class-list.json';
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+}
+
+/* Slides down, stays for 5 seconds, then slides back up out of view. */
+@keyframes notice-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(-150%);
+  }
+  5%,
+  95% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150%);
+    visibility: hidden;
+  }
+}
+
+.notice-toast {
+  animation: notice-slide 5.5s ease-in-out forwards;
+}

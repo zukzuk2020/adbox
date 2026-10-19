@@ -1,0 +1,25 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - '4000:4000'
+    environment:
+      PORT: 4000
+      DB_DIR: /db
+      CLIENT_ORIGIN: http://localhost:5173
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+      - ./db:/db
+
+  client:
+    build: ./client
+    ports:
+      - '5173:5173'
+    environment:
+      VITE_API_URL: http://localhost:4000
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - server
